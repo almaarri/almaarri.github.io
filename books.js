@@ -1,24 +1,26 @@
-let mockData = [{
-    id: '1',
-    title: 'This is title',
-    done: false,
-    date: new Date()
-  }, {
-    id: '2',
-    title: 'This is second title',
-    done: false,
-    date: new Date()
-  }, {
-    id: '3',
-    title: 'This is third title',
-    done: false,
-    date: new Date()
-  }, {
-    id: '4',
-    title: 'This is forth title',
-    done: false,
-    date: new Date()
-  }];
+let startingData = 
+[{
+  id: 1,
+  authorFirst: 'Thomas', 
+  authorLast: 'Barfield', 
+  title: 'Afghanistan: A History', 
+  year: 2012, 
+  publisher: 'Penguin'
+}, {
+  id: 2,
+  authorFirst: 'Lewis', 
+  authorLast: 'Dupree', 
+  title: 'Afghanistan', 
+  year: 1979, 
+  publisher: 'Oxford University Press'
+}, {
+  id: 3,
+  authorFirst: 'Carter', 
+  authorLast: 'Malkasian', 
+  title: 'War Comes to Garmser', 
+  year: 2013, 
+  publisher: 'Penguin'
+}];
 
 class Books {
 	constructor() {
@@ -65,13 +67,15 @@ class Books {
   render() {
     this.list.innerHTML = '';
 
-    mockData.forEach(item => {
+    startingData.forEach(item => {
       this.createDomElements(item.id);
-      this.li.insertAdjacentHTML('afterbegin', item.title);
+      this.li.insertAdjacentHTML('afterbegin', item.authorLast+", "+item.authorFirst+". "+"<i>"+item.title+". "+"</i>"+item.publisher+": "+item.year+".");
+      //this.li.insertAdjacentHTML('afterbegin', item.authorFirst+" ");
 
-      if (item.done) {
-        this.li.classList.add('done');
-      }
+      //this.li.insertAdjacentHTML('afterbegin', item.title);
+      //this.li.insertAdjacentHTML('afterbegin', item.publisher);
+      //this.li.insertAdjacentHTML('afterbegin', item.year);
+//+". "+item.title+". "
 
       this.list.appendChild(this.li);
     });

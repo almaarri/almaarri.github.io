@@ -7,9 +7,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <style>
+      .body {
+        padding: 1em
+      }
       .bd-placeholder-img {
         font-size: 1.125rem;
-        text-anchor: middle;
+        text-anchor: left;
         -webkit-user-select: none;
         -moz-user-select: none;
         user-select: none;
@@ -21,22 +24,29 @@
         }
       }
     </style>
-  <body class="d-flex h-100 text-left text-white bg-dark">
+  
+  <body class="body text-white bg-dark padding-10-px">
+    <h1>My Bookshelf</h1>
+    <!--
     <div class="edit-popup">
     <input type="text" name="" class="edit-item">
     <button class="btn-update">Update</button>
-  </div>
-  <div class="container">
-    <div class="sections">
-      <input type="text" name="" class="item">
-      <button class="btn-add-item">Add</button>
-  </div>
+  </div> -->
+  <!--
+  <div class="container justify-left">
+  -->
   <div class="items">
-      <ul class="list-items">
+      <ul class="list-items padding-1em">
           
       </ul>
   </div>
+  <div class="sections">
+    <input type="text" name="" class="item">
+    <button class="btn-add-item justify-left">Add new item</button>
 </div>
+<!--
+</div>
+-->
 </body>
 <script src="books.js"></script>
 </html>
