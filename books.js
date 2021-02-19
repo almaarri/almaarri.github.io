@@ -31,13 +31,13 @@ class Books {
     document.querySelector('.btn-add-item').addEventListener('click', this.create.bind(this));
     
     //event listener to update an item
-    document.querySelector('.btn-update').addEventListener('click', this.update.bind(this));
+    //document.querySelector('.btn-update').addEventListener('click', this.update.bind(this));
 
 
     // event listener to delete and update items
     document.addEventListener('click', event => {
         if (event.target.classList.contains('btn-delete')) {
-          self.remove(event);
+          this.remove(event);
         }
       if (event.target.classList.contains('btn-edit')) {
         self.renderEditForm(event);
@@ -70,19 +70,12 @@ class Books {
     startingData.forEach(item => {
       this.createDomElements(item.id);
       this.li.insertAdjacentHTML('afterbegin', item.authorLast+", "+item.authorFirst+". "+"<i>"+item.title+". "+"</i>"+item.publisher+": "+item.year+".");
-      //this.li.insertAdjacentHTML('afterbegin', item.authorFirst+" ");
-
-      //this.li.insertAdjacentHTML('afterbegin', item.title);
-      //this.li.insertAdjacentHTML('afterbegin', item.publisher);
-      //this.li.insertAdjacentHTML('afterbegin', item.year);
-//+". "+item.title+". "
-
       this.list.appendChild(this.li);
     });
   }
 
    // Create DOM Elements function
-   createDomElements(id) {
+    createDomElements(id) {
     this.li = document.createElement('li');
     this.edit = document.createElement('button');
     this.delete = document.createElement('button');
@@ -111,21 +104,22 @@ class Books {
           date: new Date()
         };
     
-        mockData.push(newItem);
+        startingData.push(newItem);
     
         document.querySelector('.item').value = '';
         this.render();
       } //create
 
       // Delete item
-  remove(event) {
+    remove(event) {
     let id = event.target.getAttribute('data-id');
 
-    mockData = mockData.filter(item => {
-      if (item.id !== id) {
+    startingData = startingData.filter(item => {
+      if (item.id != id) {
         return item;
       }
     });
+    console.log(startingData);
 
     this.render();
   }//remove
@@ -138,7 +132,7 @@ class Books {
         mockData = mockData.map(item => {
           if (item.id === id) {
             item['title'] = itemTobeUpdated;
-          }
+          }document
     
           return item;
         });
